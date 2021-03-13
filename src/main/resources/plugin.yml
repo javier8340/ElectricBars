@@ -1,0 +1,6 @@
+name: Myapp
+version: ${project.version}
+main: javiergg.myapp.Myapp
+api-version: 1.16
+prefix: "[ IronFences ]"
+authors: [ javiergg ]
