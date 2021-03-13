@@ -1,6 +1,6 @@
-name: Myapp
+name: ElectricBar
 version: ${project.version}
-main: javiergg.myapp.Myapp
+main: javiergg.ElectricBars.Myapp
 api-version: 1.16
 prefix: "[ IronFences ]"
 authors: [ javiergg ]
