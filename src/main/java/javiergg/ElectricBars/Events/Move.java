@@ -5,6 +5,7 @@ import javiergg.ElectricBars.Myapp;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
+import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -16,14 +17,7 @@ import java.util.List;
 
 public class Move  implements Listener {
 
-    private final static BlockFace[] directions = {
-            BlockFace.DOWN,
-            BlockFace.UP,
-            BlockFace.NORTH,
-            BlockFace.SOUTH,
-            BlockFace.WEST,
-            BlockFace.EAST
-    };
+
 
     @EventHandler
     public void move(PlayerMoveEvent event){
@@ -61,12 +55,13 @@ public class Move  implements Listener {
         ubicaciones.add(l2);
 
         for (Location location: ubicaciones) {
-            Material m = world.getBlockAt(location).getBlockData().getMaterial();
+            Block block = world.getBlockAt(location);
+            Material m = block.getBlockData().getMaterial();
             if (m == Material.IRON_BARS){
 
                 List<Location> bloques = Myapp.get().guardaBloques.getBloques();
                 for (Location bloque: bloques){
-                    if (Ubicacion.compareLocations(location, bloque)){
+                    if (block.getLocation().equals(bloque)){
                         recibeDanno = true;
                         if (!Myapp.get().danno.jugadores.contains(p)){
                             Myapp.get().danno.jugadores.add(p);
