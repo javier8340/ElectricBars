@@ -1,8 +1,8 @@
 #Configuracion plugin ElectricBars
 mensajes:
   prefijo: "[ ElectricBars ]"
-  muerte: "%player% ha sido electrocutado"
+  muerte: "%player% se ha electrocutado"
 
 opciones:
-  damage: 0.1
+  damage: 3
   delayDamage: 20
