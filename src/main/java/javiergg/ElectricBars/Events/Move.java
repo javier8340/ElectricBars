@@ -1,5 +1,6 @@
 package javiergg.ElectricBars.Events;
 
+import javiergg.ElectricBars.Librerias.Ubicacion;
 import javiergg.ElectricBars.Myapp;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -11,6 +12,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Move  implements Listener {
 
@@ -62,11 +64,13 @@ public class Move  implements Listener {
             Material m = world.getBlockAt(location).getBlockData().getMaterial();
             if (m == Material.IRON_BARS){
 
-
-                if (location.getBlock().isBlockPowered() || location.getBlock().isBlockIndirectlyPowered()){
-                    recibeDanno = true;
-                    if (!Myapp.get().danno.jugadores.contains(p)){
-                        Myapp.get().danno.jugadores.add(p);
+                List<Location> bloques = Myapp.get().guardaBloques.getBloques();
+                for (Location bloque: bloques){
+                    if (Ubicacion.compareLocations(location, bloque)){
+                        recibeDanno = true;
+                        if (!Myapp.get().danno.jugadores.contains(p)){
+                            Myapp.get().danno.jugadores.add(p);
+                        }
                     }
                 }
 
@@ -79,6 +83,8 @@ public class Move  implements Listener {
 
 
     }
+
+
 
 
 

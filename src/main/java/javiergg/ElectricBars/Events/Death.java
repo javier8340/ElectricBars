@@ -13,7 +13,8 @@ public class Death implements Listener {
     public void muerte(PlayerDeathEvent e){
         if(e.getEntity().getLastDamageCause().getCause() == EntityDamageEvent.DamageCause.CUSTOM){
             if (Myapp.get().danno.jugadores.add(e.getEntity())){
-                e.setDeathMessage(e.getEntity().getDisplayName() + " se ha electrocutado");
+//
+                e.setDeathMessage(Myapp.get().mensajes.getString("muerte").replace("%player%", e.getEntity().getDisplayName()));
                 Myapp.get().danno.jugadores.remove(e.getEntity());
             }
         }
