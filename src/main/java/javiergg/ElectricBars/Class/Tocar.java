@@ -1,7 +1,6 @@
 package javiergg.ElectricBars.Class;
 
 
-import javiergg.ElectricBars.Entity.Muerte;
 import javiergg.ElectricBars.Myapp;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
@@ -29,9 +28,9 @@ public class Tocar {
             @Override
             public void run() {
                 for (Player p: jugadores) {
-                    p.setHurtDirection(0);
 
-                    p.damage(Myapp.get().opciones.getDouble("damage"), new Muerte());
+
+                    p.damage(Myapp.get().opciones.getDouble("damage"));
 
                 }
                 runner();
