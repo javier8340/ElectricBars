@@ -13,9 +13,11 @@ public class Tocar {
 
     public ArrayList<Player> jugadores;
     private Plugin plugin;
+    private int delay;
 
     public Tocar(Plugin plugin){
         this.plugin = plugin;
+        delay = Myapp.get().opciones.getInt("delayDamage");
         this.jugadores = new ArrayList<>();
         runner();
     }
@@ -34,6 +36,6 @@ public class Tocar {
                 }
                 runner();
             }
-        }.runTaskLater(this.plugin, Myapp.get().opciones.getInt("delayDamage"));
+        }.runTaskLater(this.plugin, this.delay);
     }
 }
