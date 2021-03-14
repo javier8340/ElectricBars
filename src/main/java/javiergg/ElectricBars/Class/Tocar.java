@@ -2,6 +2,7 @@ package javiergg.ElectricBars.Class;
 
 
 import javiergg.ElectricBars.Entity.Muerte;
+import javiergg.ElectricBars.Myapp;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -20,6 +21,7 @@ public class Tocar {
     }
 
     public void runner(){
+
         new BukkitRunnable(){
 
             @Override
@@ -27,11 +29,11 @@ public class Tocar {
                 for (Player p: jugadores) {
                     p.setHurtDirection(0);
 
-                    p.damage(0.5, new Muerte());
+                    p.damage(Myapp.get().opciones.getDouble("damage"), new Muerte());
 
                 }
                 runner();
             }
-        }.runTaskLater(this.plugin, 20);
+        }.runTaskLater(this.plugin, Myapp.get().opciones.getInt("delayDamage"));
     }
 }
